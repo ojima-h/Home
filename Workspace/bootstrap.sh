@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-sudo apt-get install -y git vim
+sudo apt-get install -y git vim tmux
 sduo apt-get install -y make g++
 sudo apt-get install -y python-pip
 sudo pip install --user awscli
@@ -20,3 +20,8 @@ if [ ! -e ~/.anyenv ]; then
 fi
 $HOME/.anyenv/bin/anyenv install -s rbenv
 $HOME/.anyenv/bin/anyenv install -s pyenv
+
+if [ ! -e ~/.tmux.conf ]; then
+  ln -s /vagrant/config/tmux.conf ~/.tmux.conf
+echo ok
+fi
