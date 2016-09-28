@@ -23,5 +23,7 @@ $HOME/.anyenv/bin/anyenv install -s pyenv
 
 if [ ! -e ~/.tmux.conf ]; then
   ln -s /vagrant/config/tmux.conf ~/.tmux.conf
-echo ok
+fi
+if [ ! -e ~/.gitconfig ]; then
+  ln -s /vagrant/config/gitconfig ~/.gitconfig
 fi
