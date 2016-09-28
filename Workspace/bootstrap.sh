@@ -7,17 +7,9 @@ sduo apt-get install -y make g++
 sudo apt-get install -y python-pip
 sudo pip install --user awscli
 
-# Aliases
-cat <<SHELL > ~/.bash_aliases
-alias be="bundle exec"
-SHELL
-
-# Environment variables
-cat <<'SHELL' > ~/.bash_env
-export PATH="$HOME/.local/bin:$PATH"
-SHELL
-if ! grep .bash_env ~/.bashrc > /dev/null; then
-  echo 'source "$HOME/.bash_env"' >> ~/.bashrc
+# Append bashrc
+if ! grep /vagrant/config/bashrc ~/.bashrc > /dev/null; then
+  echo 'source /vagrant/config/bashrc' >> ~/.bashrc
 fi
 
 # Install anyenv
