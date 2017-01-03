@@ -2,8 +2,11 @@
 
 sudo apt-get update
 
-sudo apt-get install -y git vim tmux
 sduo apt-get install -y make g++
+sudo apt-get install -y language-pack-ja
+sudo update-locale LC_ALL=en_US.UTF_8
+
+sudo apt-get install -y git vim tmux
 sudo apt-get install -y python-pip
 sudo pip install --user awscli
 
