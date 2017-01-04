@@ -10,5 +10,5 @@
 
 - file:
     state: link
-    path: '{{ workdir }}/../Vagrantfile'
-    src: '{{ workdir }}/files/local/Vagrantfile'
+    path: '{{ my_env_root }}/../Vagrantfile'
+    src: '{{ my_env_root }}/files/local/Vagrantfile'

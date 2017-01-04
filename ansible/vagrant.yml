@@ -4,4 +4,5 @@
     - vagrant
     - common
   vars:
-    workdir: /vagrant/Home
+    my_env_name: vagrant
+    my_env_root: /vagrant/Home

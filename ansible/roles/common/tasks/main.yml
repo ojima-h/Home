@@ -2,14 +2,17 @@
 - file:
     path: '{{ ansible_env.HOME }}/.bash_profile'
     state: touch
-- lineinfile:
+- blockinfile:
     dest: '{{ ansible_env.HOME }}/.bash_profile'
-    line: 'source {{ workdir }}/files/common/bash_profile'
+    block: |
+      export MY_ENV_NAME={{ my_env_name }}
+      export MY_ENV_ROOT={{ my_env_root }}
+      [ -f $MY_ENV_ROOT/files/common/bash_profile ] && . $MY_ENV_ROOT/files/common/bash_profile
 
 - file:
     state: link
     path: '{{ ansible_env.HOME }}/.{{ item.file }}'
-    src: '{{ workdir }}/files/common/{{ item.file }}'
+    src: '{{ my_env_root }}/files/common/{{ item.file }}'
   with_items:
     - { file: gitconfig }
     - { file: vimrc }
