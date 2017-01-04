@@ -1,0 +1,7 @@
+---
+- hosts: local
+  roles:
+    - local
+    - common
+  vars:
+    workdir: '{{ ansible_env.HOME }}/Workspace/Home'
