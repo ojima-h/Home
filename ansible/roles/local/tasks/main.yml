@@ -1,0 +1,14 @@
+---
+- homebrew:
+    update_homebrew: yes
+
+- homebrew:
+    name: '{{item.name}}'
+  with_items:
+    - { name: bash-completion }
+    - { name: git }
+
+- file:
+    state: link
+    path: '{{ workdir }}/../Vagrantfile'
+    src: '{{ workdir }}/files/local/Vagrantfile'

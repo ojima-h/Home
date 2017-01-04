@@ -1,0 +1,19 @@
+---
+- apt:
+    update_cache: yes
+  become: true
+
+- apt:
+    name: '{{ item.name }}'
+  with_items:
+    - { name: make }
+    - { name: g++ }
+    - { name: language-pack-ja }
+    - { name: git }
+    - { name: vim }
+    - { name: tmux }
+    - { name: python-pip }
+  become: true
+
+- command: update-locale LC_ALL=en_US.UTF_8
+  become: true

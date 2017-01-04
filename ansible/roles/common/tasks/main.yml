@@ -1,0 +1,26 @@
+---
+- file:
+    path: '{{ ansible_env.HOME }}/.bash_profile'
+    state: touch
+- lineinfile:
+    dest: '{{ ansible_env.HOME }}/.bash_profile'
+    line: 'source {{ workdir }}/files/common/bash_profile'
+
+- file:
+    state: link
+    path: '{{ ansible_env.HOME }}/.{{ item.file }}'
+    src: '{{ workdir }}/files/common/{{ item.file }}'
+  with_items:
+    - { file: gitconfig }
+    - { file: vimrc }
+    - { file: tmux.conf }
+
+- name: anyenv
+  git:
+    repo: https://github.com/riywo/anyenv
+    dest: '{{ ansible_env.HOME }}/.anyenv'
+- name: anyenv
+  command: /bin/bash -lc 'anyenv install -s {{ item.env }}'
+  with_items:
+    - { env: pyenv }
+    - { env: rbenv }
