@@ -2,7 +2,8 @@
 
 set -eu
 
-mkdir -p ~/Workspace
+WORKDIR=$HOME/Workspace
+mkdir -p $WORKDIR
 
 # Install Homebrew
 if ! which brew > /dev/null
@@ -11,9 +12,9 @@ then
 fi
 
 # Clone Home.git
-if [ ! -d ~/Workspace/Home ]
+if [ ! -d $WORKDIR/Home ]
 then
-  git clone git@github.com:ojima-h/Home.git ~/Workspace/Home
+  git clone git@github.com:ojima-h/Home.git $WORKDIR/Home
 fi
 
 # Install ansible
