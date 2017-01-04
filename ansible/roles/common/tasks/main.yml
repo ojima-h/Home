@@ -2,9 +2,12 @@
 - file:
     path: '{{ ansible_env.HOME }}/.bash_profile'
     state: touch
-- lineinfile:
+- blockinfile:
     dest: '{{ ansible_env.HOME }}/.bash_profile'
-    line: 'source {{ workdir }}/files/common/bash_profile'
+    block: |
+      export MY_ENV_NAME={{ my_env_name }}
+      export MY_ENV_ROOT={{ workdir }}
+      [ -f {{ workdir }}/files/common/bash_profile ] && . {{ workdir }}/files/common/bash_profile
 
 - file:
     state: link

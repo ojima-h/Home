@@ -5,3 +5,4 @@
     - common
   vars:
     workdir: '{{ ansible_env.HOME }}/Workspace/Home'
+    my_env_name: local

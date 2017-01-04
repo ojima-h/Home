@@ -5,3 +5,4 @@
     - common
   vars:
     workdir: /vagrant/Home
+    my_env_name: vagrant
