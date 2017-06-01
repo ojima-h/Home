@@ -21,5 +21,5 @@ fi
 # Clone Home.git
 if [ ! -d $WORKDIR/Home ]
 then
-  git clone git@github.com:ojima-h/Home.git $WORKDIR/Home
+  git clone https://github.com/ojima-h/Home.git $WORKDIR/Home
 fi
