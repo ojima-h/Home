@@ -13,6 +13,7 @@
     - { name: vim }
     - { name: tmux }
     - { name: python-pip }
+    - { name: curl }
   become: true
 
 - command: update-locale LC_ALL=en_US.UTF_8
